@@ -2,6 +2,7 @@ package art.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -26,6 +27,12 @@ public class ColoringCanvas extends JPanel
 		this.setMinimumSize(new Dimension(800,800));
 		this.setMaximumSize(new Dimension(800,800));
 		this.setPreferredSize(new Dimension(800,800));
-		
+	}
+	
+	@Override
+	protected void paintComponent(Graphics graphics)
+	{
+		super.paintComponent(graphics);
+		graphics.drawImage(canvasImage, 0, 0, null);
 	}
 }
