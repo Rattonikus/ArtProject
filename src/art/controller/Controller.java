@@ -11,12 +11,14 @@ public class Controller
 	
 	public Controller()
 	{
-		this.frame = new ArtFrame(this); 
 	}
 	
 	public void start()
 	{
 		JOptionPane.showMessageDialog(frame, "Welcome to Java Art");
+		this.frame = new ArtFrame(this); 
+
+		
 	}
 	
 	public void handleError(Exception error) 

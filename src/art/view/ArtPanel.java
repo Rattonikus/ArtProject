@@ -39,6 +39,8 @@ public class ArtPanel extends JPanel
 		this.layout = new SpringLayout(); 
 		this.buttonPanel = new JPanel(new GridLayout(0,1));
 		this.ArtController = app;
+		this.canvas = new ColoringCanvas(app);
+		
 		this.blackButton = new JButton("Black Button");
 		this.blueButton = new JButton("Blue Button");
 		this.brownButton = new JButton("Brown Button");
@@ -55,7 +57,7 @@ public class ArtPanel extends JPanel
 		
 		this.saveButton = new JButton("Save Image");
 		
-		
+		setupPanel();
 	}
 	
 	private void setupPanel()
@@ -64,8 +66,8 @@ public class ArtPanel extends JPanel
 		this.setBackground(Color.lightGray);
 		this.setPreferredSize(new Dimension(1200, 900));
 		
-		this.add(canvas);
 		this.add(buttonPanel);
+		this.add(canvas);
 		
 		this.buttonPanel.add(blackButton);
 		this.buttonPanel.add(blueButton);
