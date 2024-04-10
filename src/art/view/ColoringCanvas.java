@@ -21,6 +21,7 @@ public class ColoringCanvas extends JPanel
 	{
 		super(); 
 		this.controller = app; 
+		resetPoint(); 
 		this.currentColor = Color.YELLOW;
 		this.canvasImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
 		
@@ -34,5 +35,11 @@ public class ColoringCanvas extends JPanel
 	{
 		super.paintComponent(graphics);
 		graphics.drawImage(canvasImage, 0, 0, null);
+	}
+	
+	private void resetPoint()
+	{
+		this.previousX = Integer.MIN_VALUE;
+		this.previousY = Integer.MIN_VALUE;
 	}
 }
