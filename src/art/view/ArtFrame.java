@@ -22,7 +22,6 @@ public class ArtFrame extends JFrame
 		 this.setTitle("Java Artwork");
 		 this.setResizable(false);
 		 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 		 this.setVisible(true);
 	}
 

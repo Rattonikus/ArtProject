@@ -1,6 +1,20 @@
 package art.view;
 
-public class ArtPanel 
+import javax.swing.*;
+import art.controller.*;
+
+
+public class ArtPanel extends JPanel
 {
+	
+	private Controller ArtController;
+	private SpringLayout layout;
+	private JPanel buttonPanel; 
+	private JButton saveButton; 
+	
+	public ArtPanel()
+	{
+		
+	}
 
 }
