@@ -58,17 +58,15 @@ public class ArtPanel extends JPanel
 		this.saveButton = new JButton("Save Image");
 		
 		setupPanel();
+		setupLayout();
 	}
 	
 	private void setupPanel()
 	{
-		this.layout = new SpringLayout(); 
+		this.setLayout(layout);
 		this.setBackground(Color.lightGray);
 		this.setPreferredSize(new Dimension(1200, 900));
-		
-		this.add(buttonPanel);
-		this.add(canvas);
-		
+	
 		this.buttonPanel.add(blackButton);
 		this.buttonPanel.add(blueButton);
 		this.buttonPanel.add(brownButton);
@@ -80,7 +78,7 @@ public class ArtPanel extends JPanel
 		this.buttonPanel.add(loadButton);
 		this.buttonPanel.add(clearButton);
 		this.buttonPanel.add(saveButton);
-		
+				
 		for(Component current : buttonPanel.getComponents())
 		{
 			if (current instanceof JButton)
@@ -90,11 +88,16 @@ public class ArtPanel extends JPanel
 				currentButton.setOpaque(true);
 			}
 		}
+		
+		this.add(buttonPanel);
+		this.add(canvas);
 	}
 	
 	private void setupLayout()
 	{
-		
+		layout.putConstraint(SpringLayout.EAST, buttonPanel, -200, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.NORTH, buttonPanel, 50, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, buttonPanel, -100, SpringLayout.SOUTH, this);
 	}
 	
 	private void setupListeners()
