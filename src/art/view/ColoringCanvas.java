@@ -7,8 +7,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.File; 
 
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import art.controller.Controller;
 
@@ -18,12 +23,12 @@ public class ColoringCanvas extends JPanel
 	private int previousX; 
 	private int previousY; 
 	private Color currentColor; 
-	private Controller controller; 
+	private Controller app; 
 	
 	public ColoringCanvas(Controller app)
 	{
 		super(); 
-		this.controller = app; 
+		this.app = app; 
 		resetPoint(); 
 		this.currentColor = Color.YELLOW;
 		this.canvasImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
@@ -63,5 +68,47 @@ public class ColoringCanvas extends JPanel
 		drawingGraphics.drawRect(0, 0, 800, 800);
 		drawingGraphics.setStroke(new BasicStroke(1.5f));
 		drawingGraphics.draw(drawShapeThing());
+	}
+	
+	public void save()
+	{
+		try
+		{
+			JFileChooser saveDialog = new JFileChooser(".");
+			saveDialog.showSaveDialog(this);
+			String savePath = saveDialog.getSelectedFile().getPath();
+			if (savePath.indexOf(".png") == -1)
+			{
+				savePath += ".png";
+			}
+			ImageIO.write(canvasImage, "PNG", new File(savePath));
+		}
+		catch(IOException | NullPointerException e)
+		{
+			app.handleError(e);
+		}
+	}
+	
+	public void loadImage()
+	{
+		BufferedImage source = null;
+		
+		try 
+		{
+			JFileChooser picker = new JFileChooser(".");
+			picker.addChoosableFileFilter(new FileNameExtensionFilter("Pictures!", "png"));
+			
+			if (picker.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+			{
+				String filepath = picker.getSelectedFile().getPath();
+				source = ImageIO.read(new File(filepath));
+				canvasImage = source;
+				repaint(); 
+			}
+		}
+		catch(Exception error)
+		{
+			app.handleError(error);
+		}
 	}
 }

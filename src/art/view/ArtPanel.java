@@ -59,12 +59,13 @@ public class ArtPanel extends JPanel
 		
 		setupPanel();
 		setupLayout();
+		setupListeners();
 	}
 	
 	private void setupPanel()
 	{
 		this.setLayout(layout);
-		this.setBackground(Color.lightGray);
+		this.setBackground(Color.DARK_GRAY);
 		this.setPreferredSize(new Dimension(1200, 900));
 	
 		this.buttonPanel.add(blackButton);
@@ -78,6 +79,17 @@ public class ArtPanel extends JPanel
 		this.buttonPanel.add(loadButton);
 		this.buttonPanel.add(clearButton);
 		this.buttonPanel.add(saveButton);
+		this.blackButton.setBackground(Color.LIGHT_GRAY);
+		this.blueButton.setBackground(Color.LIGHT_GRAY);
+		this.brownButton.setBackground(Color.LIGHT_GRAY);
+		this.redButton.setBackground(Color.LIGHT_GRAY);
+		this.greenButton.setBackground(Color.LIGHT_GRAY);
+		this.purpleButton.setBackground(Color.LIGHT_GRAY);
+		this.yellowButton.setBackground(Color.LIGHT_GRAY);
+		this.choiceButton.setBackground(Color.LIGHT_GRAY);
+		this.loadButton.setBackground(Color.LIGHT_GRAY);
+		this.clearButton.setBackground(Color.LIGHT_GRAY);
+		this.saveButton.setBackground(Color.LIGHT_GRAY);
 				
 		for(Component current : buttonPanel.getComponents())
 		{
@@ -95,14 +107,23 @@ public class ArtPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		layout.putConstraint(SpringLayout.EAST, buttonPanel, -200, SpringLayout.EAST, this);
-		layout.putConstraint(SpringLayout.NORTH, buttonPanel, 50, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.SOUTH, buttonPanel, -100, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.NORTH, canvas, 20, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, canvas, 20, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, canvas, -20, SpringLayout.SOUTH, this);
+
+
+		
+		
+		layout.putConstraint(SpringLayout.EAST, buttonPanel, -20, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.NORTH, buttonPanel, 20, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, buttonPanel, -20, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.WEST, buttonPanel, 20, SpringLayout.EAST, canvas);
 	}
 	
 	private void setupListeners()
 	{
-		
+		saveButton.addActionListener(click -> canvas.save());
+		loadButton.addActionListener(click -> canvas.loadImage());
 	}
 
 }
