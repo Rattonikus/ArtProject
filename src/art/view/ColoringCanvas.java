@@ -8,6 +8,8 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 import java.io.File; 
 
 import javax.imageio.ImageIO;
@@ -57,8 +59,30 @@ public class ColoringCanvas extends JPanel
 		int [] xPoints = {100,200};
 		int [] yPoints = {100,200};
 		
+		
 		Polygon thing = new Polygon(xPoints, yPoints, 2);
 		return thing; 
+	}
+	
+	private Polygon drawRandomShape()
+	{
+		Random random = new Random(); 
+		
+		int arraySize = random.nextInt(8);
+		
+		ArrayList<Integer> tempXPoints = new ArrayList<Integer>();
+		ArrayList<Integer> tempYPoints = new ArrayList<Integer>();
+		
+		for(int i = 0; i < arraySize; i++)
+		{
+			tempXPoints.add(random.nextInt(800));
+			tempYPoints.add(random.nextInt(800));
+		}
+		
+		int[] xPoints = tempXPoints.toArray(); 
+		
+		Polygon randomShape = new Polygon(xPoints.toArray(), yPoints.toArray(), arraySize);
+		return null;
 	}
 	
 	private void updateCanvas()
@@ -66,7 +90,7 @@ public class ColoringCanvas extends JPanel
 		Graphics2D drawingGraphics = (Graphics2D) canvasImage.getGraphics();
 		drawingGraphics.setColor(Color.CYAN);
 		drawingGraphics.drawRect(0, 0, 800, 800);
-		drawingGraphics.setStroke(new BasicStroke(1.5f));
+		drawingGraphics.setStroke(new BasicStroke(5.5f));
 		drawingGraphics.draw(drawShapeThing());
 	}
 	
