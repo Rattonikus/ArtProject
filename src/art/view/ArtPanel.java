@@ -33,6 +33,8 @@ public class ArtPanel extends JPanel
 	private JButton loadButton; 
 	private JButton clearButton; 
 	
+	 
+	
 	
 	
 	public ArtPanel(Controller app)
@@ -56,7 +58,7 @@ public class ArtPanel extends JPanel
 		this.saveButton = new JButton("Save Image");
 		
 		this.purple = new Color(153, 50, 204);
-		this.brown = new Color(139,69,19);
+		this.brown = new Color(139,69,19); 
 		
 		setupPanel();
 		setupLayout();
@@ -126,5 +128,6 @@ public class ArtPanel extends JPanel
 		saveButton.addActionListener(click -> canvas.save());
 		loadButton.addActionListener(click -> canvas.loadImage());
 	}
+	
 
 }

@@ -10,13 +10,17 @@ public class ArtFrame extends JFrame
 	private ArtPanel panel; 
 	private ColoringArtPanel coloringPanel; 
 	private JTabbedPane tabbedPane; 
+	private JMenuBar menuBar;
 	
 	public ArtFrame(Controller controller)
 	{
 		super(); 
 		this.app = controller; 
 		this.panel = new ArtPanel(controller);
-		this.tabbedPane = new JTabbedPane(); 
+		this.tabbedPane = new JTabbedPane();
+		this.menuBar = new JMenuBar(); 
+		
+		setupMenu(); 
 		setupFrame(); 
 	}
 	
@@ -31,6 +35,11 @@ public class ArtFrame extends JFrame
 		 this.setResizable(false);
 		 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 this.setVisible(true);
+	}
+	
+	private void setupMenu()
+	{
+		
 	}
 
 }
