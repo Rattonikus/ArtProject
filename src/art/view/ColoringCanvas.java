@@ -69,20 +69,21 @@ public class ColoringCanvas extends JPanel
 		Random random = new Random(); 
 		
 		int arraySize = random.nextInt(8);
-		
-		ArrayList<Integer> tempXPoints = new ArrayList<Integer>();
-		ArrayList<Integer> tempYPoints = new ArrayList<Integer>();
+		System.out.println(arraySize);
+
+		int [] xPoints = new int[arraySize];
+		int [] yPoints = new int[arraySize];
 		
 		for(int i = 0; i < arraySize; i++)
 		{
-			tempXPoints.add(random.nextInt(800));
-			tempYPoints.add(random.nextInt(800));
-		}
+			xPoints[i] = random.nextInt(800);
+			System.out.println(xPoints[i] + "X");
+			yPoints[i] = random.nextInt(800);
+			System.out.println(yPoints[i] + "y");
+		} 
 		
-		int[] xPoints = tempXPoints.toArray(); 
-		
-		Polygon randomShape = new Polygon(xPoints.toArray(), yPoints.toArray(), arraySize);
-		return null;
+		Polygon randomShape = new Polygon(xPoints, yPoints, arraySize);
+		return randomShape;
 	}
 	
 	private void updateCanvas()
@@ -92,6 +93,7 @@ public class ColoringCanvas extends JPanel
 		drawingGraphics.drawRect(0, 0, 800, 800);
 		drawingGraphics.setStroke(new BasicStroke(5.5f));
 		drawingGraphics.draw(drawShapeThing());
+		drawingGraphics.draw(drawRandomShape());
 	}
 	
 	public void save()
