@@ -9,15 +9,14 @@ import javax.swing.*;
 import art.controller.*;
 
 
-public class ArtPanel extends JPanel
+public class ArtPanel extends JPanel //Art Panel TODO: Remove Coloring Panel Buttons, add listeners, fix layout
 {
 	
 	private Controller ArtController;
 	private SpringLayout layout;
 	private JPanel buttonPanel; 
 	private JButton saveButton; 
-	
-	private ColoringCanvas canvas; 
+	private ColoringCanvas canvas; 	
 	
 	private Color brown; 
 	private Color purple; 
@@ -32,10 +31,6 @@ public class ArtPanel extends JPanel
 	private JButton choiceButton; 
 	private JButton loadButton; 
 	private JButton clearButton; 
-	
-	 
-	
-	
 	
 	public ArtPanel(Controller app)
 	{
@@ -113,9 +108,6 @@ public class ArtPanel extends JPanel
 		layout.putConstraint(SpringLayout.NORTH, canvas, 20, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.WEST, canvas, 20, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, canvas, -20, SpringLayout.SOUTH, this);
-
-
-		
 		
 		layout.putConstraint(SpringLayout.EAST, buttonPanel, -20, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.NORTH, buttonPanel, 20, SpringLayout.NORTH, this);
@@ -128,6 +120,4 @@ public class ArtPanel extends JPanel
 		saveButton.addActionListener(click -> canvas.save());
 		loadButton.addActionListener(click -> canvas.loadImage());
 	}
-	
-
 }

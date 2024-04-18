@@ -3,7 +3,7 @@ package art.view;
 import javax.swing.*;
 import art.controller.Controller;
 
-public class ArtFrame extends JFrame
+public class ArtFrame extends JFrame //The Frame class. TODO: finish the menu setup
 {
 	
 	private Controller app;

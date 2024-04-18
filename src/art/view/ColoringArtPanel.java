@@ -5,27 +5,23 @@ import java.awt.Component;
 import java.awt.Dimension; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
-
 import art.controller.Controller;
-
 import java.awt.GridLayout;
 
-public class ColoringArtPanel extends JPanel 
+public class ColoringArtPanel extends JPanel //Coloring art panel TODO: Add mouse listeners, and setup layout. First figure out menu switcher.
 {
 	private Controller ArtController;
 	private SpringLayout layout;
 	private JPanel buttonPanel; 
 	private JButton saveButton; 
-	
 	private ColoringCanvas canvas; 
 	
 	private Color brown; 
 	private Color purple; 
-	
+		
 	private JButton blackButton; 
 	private JButton blueButton;
 	private JButton brownButton;

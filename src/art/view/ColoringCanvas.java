@@ -19,7 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import art.controller.Controller;
 
-public class ColoringCanvas extends JPanel
+public class ColoringCanvas extends JPanel	//ColoringCanvas that contains ploygon drawings. TODO: Add more drawings, and buttons to mess with variables within. 
 {
 	private BufferedImage canvasImage; 
 	private int previousX; 
@@ -31,13 +31,14 @@ public class ColoringCanvas extends JPanel
 	{
 		super(); 
 		this.app = app; 
-		resetPoint(); 
 		this.currentColor = Color.YELLOW;
 		this.canvasImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
 		
 		this.setMinimumSize(new Dimension(800,800));
 		this.setMaximumSize(new Dimension(800,800));
 		this.setPreferredSize(new Dimension(800,800));
+
+		resetPoint(); 
 		updateCanvas();
 	}
 	
@@ -58,7 +59,6 @@ public class ColoringCanvas extends JPanel
 	{
 		int [] xPoints = {100,200};
 		int [] yPoints = {100,200};
-		
 		
 		Polygon thing = new Polygon(xPoints, yPoints, 2);
 		return thing; 
