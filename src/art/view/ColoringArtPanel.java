@@ -55,23 +55,54 @@ public class ColoringArtPanel extends JPanel
 		this.choiceButton = new JButton("Choice Button");
 		this.loadButton = new JButton("Load Image");
 		this.clearButton = new JButton("Clear Image");
-		
-		this.purple = new Color(153, 50, 204);
-		this.brown = new Color(139,69,19);
-		
 		this.saveButton = new JButton("Save Image");
 		
-		
-		
+		this.purple = new Color(153, 50, 204);
+		this.brown = new Color(139,69,19);		
 	}
 	
 	private void setupPanel()
 	{
+		this.setLayout(layout);
+		this.setBackground(Color.LIGHT_GRAY);
+		this.setPreferredSize(new Dimension(1200,900));
+		this.add(canvas);
+		this.add(buttonPanel);
+		
+		buttonPanel.add(blackButton);
+		buttonPanel.add(blueButton);
+		buttonPanel.add(brownButton);
+		buttonPanel.add(redButton);
+		buttonPanel.add(greenButton);
+		buttonPanel.add(purpleButton);
+		buttonPanel.add(yellowButton);
+		buttonPanel.add(choiceButton);
+		buttonPanel.add(loadButton);
+		buttonPanel.add(clearButton);
+		buttonPanel.add(saveButton);
+		
+		for(Component current : buttonPanel.getComponents())
+		{
+			if (current instanceof JButton)
+			{
+				JButton currentButton = (JButton) current; 
+				currentButton.setBorderPainted(false);
+				currentButton.setOpaque(true);
+			}
+		}
 		
 	}
 	
 	private void setupLayout()
 	{
+		layout.putConstraint(SpringLayout.NORTH, canvas, 20, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, canvas, 20, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, canvas, -20, SpringLayout.SOUTH, this);
+		
+		layout.putConstraint(SpringLayout.EAST, buttonPanel, -50, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.NORTH, buttonPanel, 20, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, buttonPanel, -20, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.WEST, buttonPanel, 20, SpringLayout.EAST, canvas);
 	
 	}
 

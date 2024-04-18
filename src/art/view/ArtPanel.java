@@ -33,6 +33,8 @@ public class ArtPanel extends JPanel
 	private JButton loadButton; 
 	private JButton clearButton; 
 	
+	
+	
 	public ArtPanel(Controller app)
 	{
 		super(); 
@@ -51,11 +53,10 @@ public class ArtPanel extends JPanel
 		this.choiceButton = new JButton("Choice Button");
 		this.loadButton = new JButton("Load Image");
 		this.clearButton = new JButton("Clear Image");
+		this.saveButton = new JButton("Save Image");
 		
 		this.purple = new Color(153, 50, 204);
 		this.brown = new Color(139,69,19);
-		
-		this.saveButton = new JButton("Save Image");
 		
 		setupPanel();
 		setupLayout();
